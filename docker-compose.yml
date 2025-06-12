@@ -1,0 +1,14 @@
+# /challenge_cybersecurity/docker-compose.yml
+# Usa la sintaxis moderna de docker-compose
+services:
+  api:
+    container_name: collector_api
+    # Construye la imagen a partir del Dockerfile en el directorio ./api
+    build: ./api
+    restart: always
+    # Carga las variables de entorno desde el archivo .env local
+    env_file:
+      - .env
+    ports:
+      # Mapea el puerto 8000 del host al 8000 del contenedor
+      - "8000:8000"
